@@ -1,0 +1,17 @@
+
+
+{% for job in normal_jobs %}
+<a
+href="{{ job.link }}"
+target="_blank"
+class="list-group-item list-group-item-action"
+>
+<div class="d-flex w-100 justify-content-between">
+<h5 id="news_title" class="mb-1">{{ job.title }}</h5>
+<small class="text-muted">{{ job.company }}</small>
+</div>
+<p class="mb-1">마감 기한 : {{ job.end_date }}</p>
+<!-- <small class="text-muted">{{ job.time }}</small> -->
+</a>
+
+{% endfor %}

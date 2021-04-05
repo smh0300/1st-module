@@ -1,0 +1,38 @@
+version: "3.7"
+    
+services:
+  db:
+    image: mysql:5.7
+    restart: always
+    volumes:
+      - ./mysql:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: 3jo
+      MYSQL_USER: 3jo
+      MYSQL_PASSWORD: 3jo
+    ports: 
+      - 33066:3306
+    
+  crawling:
+    depends_on: 
+      - db
+    links: 
+      - db
+    build:
+      context: .
+      dockerfile: "crawling_container"
+    restart: always
+
+  web:
+    build: 
+      context: .
+      dockerfile: "django_container"
+    volumes:
+      - ./Django:/code
+    ports:
+      - 8000:8000
+    command: sh -c "sleep 50 && python manage.py runserver --settings=mypjt.settings.product 0.0.0.0:8000"
+    depends_on:
+      - db
+    

@@ -1,0 +1,42 @@
+<div>
+    <div class="list-group">
+        <div class="topbar">
+        <h3 class="top-title" ><b>최신 기사 목록</b></h3>
+        </div>
+    {% for article in articles %}
+        <a
+      href="{{ article.link }}"
+      target="_blank"
+      class="list-group-item list-group-item-action"
+    >
+      <div class="d-flex w-100 justify-content-between">
+        <div class="thumbbox">
+        <img src="{{ article.image }}" class="thumbnail"/>
+      </div>
+        <pre>  </pre>
+        <div class="titlebox">
+        <h5 id="news_title" class="mb-1">{{ article.title }}</h5>
+      </div>
+        <small class="text-muted">{{ article.homepage }}</small>
+      </div>
+      <p class="mb-1" style="margin-left: 70%; opacity: 0.7;">{{ article.time }}</p>
+      <small class="text-muted">{{ article.link }}</small>
+    </a>
+
+    {% endfor %}
+    <!-- {% for dat in data %}
+    <a
+      href="{{ dat.2 }}"
+      target="_blank"
+      class="list-group-item list-group-item-action"
+    >
+      <div class="d-flex w-100 justify-content-between">
+        <h5 id="news_title" class="mb-1">{{ dat.1 }}</h5>
+        <small class="text-muted">{{ dat.4 }}</small>
+      </div>
+      <p class="mb-1">{{ dat.2 }}</p>
+      <small class="text-muted">기사를 보려면 클릭하세요.</small>
+    </a>
+    {% endfor %} -->
+  </div>
+</div>
