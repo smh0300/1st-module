@@ -14,8 +14,9 @@
     />
     <link href="https://fonts.googleapis.com/css?family=Jua&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Do+Hyeon&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap" rel="stylesheet">
-
+   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <style>
       .container{
         width:75%;
@@ -23,7 +24,33 @@
         background-color: white;
         border-radius: 30px;
       }
-
+      .carousel {
+        background-color: black;
+        
+      }
+      .carousel-inner > .carousel-item > a > img {
+      
+      width: 65%;
+      margin: auto;
+      height: 600px;
+      border-radius: 3px;
+      } 
+      .carousel-caption > h4 {
+        font-family: Noto Sans KR;
+      }
+      .carousel-caption {
+        background-color: black;
+        opacity: 0.7;
+      }
+      .row {
+          width: 60%;
+          height:100%;
+          margin: auto;
+          text-align: center;
+          justify-content: center;
+          display: flex;
+          background-color: rgba( 0, 0, 0, 0.8 );
+      }
       .list-group {
         
         background-color: white;
@@ -41,15 +68,24 @@
       }
 
       body {
-        background-image: url('/static/schedules/images/5.jpg');
+        background-image: url('/static/schedules/images/2.jpg');
         background-size: contain;
         height:100%;
+        backdrop-filter: grayscale(0.8);
         
       }
       h1 {
         color: whitesmoke;
       }
-
+      @keyframes fadein {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+      }
+      
       #news_title {
         font-family: Noto Sans KR;
       }
@@ -66,12 +102,52 @@
       #topButton {position: fixed; right: 5%; bottom: 50px; z-index: 999;}
       .titlebox {
         margin-top: 20px;
+        margin-left: 20px;
+      }
+
+      .navbar {
+        position: sticky; 
+        top:0; 
+        width: 100%; 
+        z-index: 999;
+        opacity: 0.9;
+        font-family: 'Noto Sans KR';
+        font-size: larger;
+      }
+
+      .pagination {
+        font-size: xx-large;
+      }
+
+      i {
+        color:darkslategrey
+      }
+
+      .carousel-box {
+        height:100%;
+        margin-top: -50px;
+        margin-bottom: 100px;
+        animation: fadein 3s;
+      }
+
+      .intro-box {
+        margin :auto;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        border-radius: 5px;
+        border: 5px whitesmoke;
+        width: 70%;
+        height: 100%;
+        background-color: white;
       }
     </style>
   </head>
 
   <body>
-    <h1><pre></pre> 서비스 제목입니다 <pre> </pre></h1>
+    {% include 'schedules/navbar.html' %}
+    <h1><pre></pre> <pre> </pre></h1>
     {% comment %} <div><title>Hello, world!</title></div> {% endcomment %}
 
     {% block content %} {% endblock content %}

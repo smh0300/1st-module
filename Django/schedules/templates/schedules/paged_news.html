@@ -1,0 +1,43 @@
+<div>
+    <div class="list-group">
+        <div class="topbar">
+            <h3 class="top-title"><b>전체 기사 목록</b></h3>
+        </div>
+        <div class="pagination">
+            <span class="step-links">
+                {% if article_obj.has_previous %}
+                <a href="?page=1"><i class="fas fa-angle-double-left"></i></a>
+                <a href="?page={{ article_obj.previous_page_number }}"><i class="fas fa-arrow-circle-left"></i></a>
+                {% endif %}
+        
+                <span class="current">
+                    
+                    {{ article_obj.number }}/{{ article_obj.paginator.num_pages }}
+
+                </span>
+        
+                {% if article_obj.has_next %}
+                <a href="?page={{ article_obj.next_page_number }}"><i class="fas fa-arrow-circle-right"></i></a>
+                <a href="?page={{ article_obj.paginator.num_pages }}"><i class="fas fa-angle-double-right"></i></a>
+                {% endif %}
+            </span>
+        </div>
+        {% for article in article_obj %}
+        <a href="{{ article.link }}" target="_blank" class="list-group-item list-group-item-action">
+            <div class="d-flex w-100 justify-content-between">
+                <div class="thumbbox">
+                    <img src="{{ article.image }}" class="thumbnail" />
+                </div>
+
+                <div class="titlebox">
+                    <h5 id="news_title" class="mb-1">{{ article.title }}</h5>
+                </div>
+                <small class="text-muted">{{ article.homepage }}</small>
+            </div>
+            <p class="mb-1" style="margin-left: 70%; opacity: 0.7;">{{ article.time }}</p>
+            <small class="text-muted">{{ article.link }}</small>
+        </a>
+
+        {% endfor %}
+    </div>
+</div>

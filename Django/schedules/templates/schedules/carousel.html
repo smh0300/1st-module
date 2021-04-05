@@ -1,0 +1,68 @@
+{% extends 'schedules/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="carousel-box">
+    <div class="row">
+        <div class="" style="text-align: center; margin-top: 60px; margin-bottom: 40px;">
+            <h1 style="font-family: Do Hyeon; color: whitesmoke;">플랫폼별 상위 기사 톺아보기</h1>
+        </div>
+        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                    aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                    aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active data-bs-interval="1500"">
+                    <a href="{{ first.link }}" target="_blank">
+                        <img src="{{ first.image }}" class="d-block " alt="...">
+                    </a>
+                    <div class="carousel-caption d-none d-md-block">
+                        <h4>{{ first.title }}</h4>
+                        <p>보안뉴스 최신기사</p>
+                    </div>
+                </div>
+                <div class="carousel-item data-bs-interval="1500"">
+                    <a href="{{ second.link }}" target="_blank">
+                        <img src="{{ second.image }}" class="d-block " alt="...">
+                    </a>
+                    <div class="carousel-caption d-none d-md-block">
+                        <h4>{{ second.title }}</h4>
+                        <p>더해커뉴스 최신기사</p>
+                    </div>
+                </div>
+                <div class="carousel-item data-bs-interval="1500"">
+                    <a href="{{ third.link }}" target="_blank">
+                        <img src="{{ third.image }}" class="d-block " alt="...">
+                    </a>
+                    <div class="carousel-caption d-none d-md-block">
+                        <h4>{{ third.title }}</h4>
+                        <p>데일리시큐 최신기사</p>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+        <div class="btn-group mt-2 mb-4" role="group" aria-label="actionButtons">
+            <a href="{% url 'schedules:index' %}" class="d-block btn btn-outline-light"><h4 style="font-family: 'Jua';"> <i class="fas fa-newspaper" style="color:whitesmoke"></i> 더 많은 기사 보러가기</h4></a>
+            <a href="{% url 'schedules:index2' %}" class="d-block btn btn-outline-light"><h4 style="font-family: 'Jua';"> 채용공고 보러가기  <i
+                    class="fas fa-users" style="color: whitesmoke;"></i></h4></a>
+        </div>
+    </div>
+<script type="text/javascript">
+    localStorage.clear()
+</script>
+</div>
+
+{% endblock content%}
