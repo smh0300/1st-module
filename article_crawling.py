@@ -1,7 +1,7 @@
 import urllib.request as ur, pymysql, re
 from bs4 import BeautifulSoup as bs
 import datetime
-import mysql_conect
+import dummy
 login= dummy.info
 times = datetime.datetime.now()
 time = times.strftime('%y.%m.%d %a %H:%M:%S')

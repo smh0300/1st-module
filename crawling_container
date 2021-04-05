@@ -9,6 +9,7 @@ RUN rm -rf /var/lib/apt/lists/* &&\
 
 ADD article_crawling.py /root/crawling
 ADD job_crawling.py /root/crawling
+ADD dummy.py /root/crawling
 
 RUN chmod 777 /root/crawling/article_crawling.py &&\
     chmod 777 /root/crawling/job_crawling.py &&\

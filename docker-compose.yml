@@ -17,8 +17,6 @@ services:
   crawling:
     depends_on: 
       - db
-    links: 
-      - db
     build:
       context: .
       dockerfile: "crawling_container"
@@ -31,8 +29,8 @@ services:
     volumes:
       - ./Django:/code
     ports:
-      - 8000:8000
-    command: sh -c "sleep 50 && python manage.py runserver --settings=mypjt.settings.product 0.0.0.0:8000"
+      - 8282:8282
+    command: sh -c "sleep 40 && python manage.py runserver --settings=mypjt.settings.product 0.0.0.0:8282"
     depends_on:
       - db
     
