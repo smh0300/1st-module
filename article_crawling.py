@@ -1,8 +1,11 @@
 import urllib.request as ur, pymysql, re
 from bs4 import BeautifulSoup as bs
 import datetime
+import mysql_conect
+login= dummy.info
 times = datetime.datetime.now()
 time = times.strftime('%y.%m.%d %a %H:%M:%S')
+
 
 def boannews():
     url = 'https://www.boannews.com/media/t_list.asp'
@@ -48,12 +51,12 @@ def thehackernews():
 def db_connect(title :list, link :list, image: list, homepage :str):
     try:
         with pymysql.connect(
-            host="db",
-            port=3306,
-            user="3jo",
-            passwd="3jo", 
-            database="3jo",
-            charset="utf8"
+            host=login['host'],
+            port=login['port'],
+            user=login['user'],
+            passwd=login['password'], 
+            database=login['database'],
+            charset=login['charset']
         ) as connection:
             with connection.cursor() as cursor:
                 try:

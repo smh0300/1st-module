@@ -3,6 +3,8 @@ from bs4 import BeautifulSoup as bs
 import pymysql
 import re
 import datetime
+import dummy
+login= dummy.info
 times = datetime.datetime.now()
 time = times.strftime('%y.%m.%d %a %H:%M:%S')
 
@@ -51,12 +53,13 @@ def get_saramin_hireinfo(url: str) -> list:
 def insert_table(hireinfo: list):
     try:
         with pymysql.connect(
-            host="db",
-            port=3306,
-            user="3jo",
-            password="3jo", 
-            charset="utf8", 
-            database="3jo"
+            host=login['host'],
+            port=login['port'],
+            user=login['user'],
+            passwd=login['password'], 
+            database=login['database'],
+            charset=login['charset']
+          
         ) as connection:
             with connection.cursor() as cursor:
                 try:
@@ -123,7 +126,5 @@ if __name__ == "__main__":
     hireinfo = get_jobkorea_hireinfo('https://www.jobkorea.co.kr/Search/?stext=IT%EB%B3%B4%EC%95%88&tabType=recruit&Page_No=1')
     hireinfo = get_jobkorea_hireinfo('https://www.jobkorea.co.kr/Search/?stext=IT%EB%B3%B4%EC%95%88&tabType=recruit&Page_No=2')
     hireinfo = get_jobkorea_hireinfo('https://www.jobkorea.co.kr/Search/?stext=IT%EB%B3%B4%EC%95%88&tabType=recruit&Page_No=3')
-    insert_table(hireinfo)
-    hireinfo = []
     hireinfo = get_saramin_hireinfo('https://www.saramin.co.kr/zf_user/search?search_area=main&search_done=y&search_optional_item=n&searchType=search&searchword=%EC%A0%95%EB%B3%B4%EB%B3%B4%EC%95%88')
     insert_table(hireinfo)
