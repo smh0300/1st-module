@@ -43,5 +43,4 @@ def carousel(request):
     return render(request, 'schedules/carousel.html', context)
 
 def introduce(request):
-
     return render(request, 'schedules/introduce.html')

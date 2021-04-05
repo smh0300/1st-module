@@ -118,7 +118,22 @@
       .pagination {
         font-size: xx-large;
       }
-
+      .card {
+        max-height:344px;
+        width: 80%;
+        font-family: Noto Sans KR;
+        animation: fadein 2s;
+      }
+      .card:hover {
+        opacity: 0.8;
+      }
+      .card > img {
+        max-height: 229px;
+      }
+      .card > h5 {
+        font-weight:bold;
+      }
+      
       i {
         color:darkslategrey
       }
@@ -140,7 +155,11 @@
         border: 5px whitesmoke;
         width: 70%;
         height: 100%;
-        background-color: white;
+        background-color: snow;
+        animation: fadein 3s;
+      }
+      .pagination {
+        margin-left: 20px;
       }
     </style>
   </head>
